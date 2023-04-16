@@ -1,0 +1,8 @@
+
+<div>
+  <h1>Should mankind colonize the Universe?</h1>
+  <app-mr-iq (vote)="onVote($event)"></app-mr-iq>
+  <app-ms-universe (vote)="onVote($event)"></app-ms-universe>
+  <app-bombasto (vote)="onVote($event)"></app-bombasto>
+  <app-vote-result [agreeCount]="agreeCount" [disagreeCount]="disagreeCount"></app-vote-result>
+</div>
