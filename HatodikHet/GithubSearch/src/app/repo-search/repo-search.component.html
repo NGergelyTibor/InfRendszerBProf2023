@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Search for a Github Repository</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="repoName" placeholder="Enter repository name" name="repoName">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="searchRepo()">Search</button>
+    </form>
+    <hr>
+    <div *ngIf="repos">
+      <ul>
+        <li *ngFor="let repo of repos">
+          <h4><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h4>
+          <p>{{ repo.description }}</p>
+          <p>Language: {{ repo.language }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

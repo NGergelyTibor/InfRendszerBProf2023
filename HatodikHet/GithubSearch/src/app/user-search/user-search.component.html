@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Search for a Github User</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter username" name="username">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="searchUser()">Search</button>
+    </form>
+    <hr>
+    <div *ngIf="user">
+      <h4>{{ user.name }}</h4>
+      <img [src]="user.avatar_url" alt="{{ user.name }}" height="100">
+      <p>{{ user.bio }}</p>
+      <p><a href="{{ user.html_url }}" target="_blank">{{ user.html_url }}</a></p>
+    </div>
+  </div>
+  
