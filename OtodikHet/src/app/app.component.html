@@ -1,7 +1,7 @@
 
 <div>
   <h2>{{ questionText }}</h2>
-  <app-voter *ngFor="let voter of voters" [name]="voter.name" [options]="['Agree', 'Disagree']" (vote)="onVote($event, voter)"></app-voter>
-  
+  <app-voter *ngFor="let voter of voters" [name]="voter.name" [options]="options" (vote)="onVote($event, voter)"></app-voter>  
+
   <app-vote-result [agreeCount]="agreeCount" [disagreeCount]="disagreeCount"></app-vote-result>
 </div>

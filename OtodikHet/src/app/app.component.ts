@@ -19,16 +19,20 @@ export class AppComponent {
 
   questionText = "Should mankind colonize the Universe?";
 
-  agreeCount = 0;
-  disagreeCount = 0;
+  options = ['Agree', 'Disagree', 'Would not say'];
+  voteCounts: number[] = Array(this.options.length).fill(0);
 
-  onVote(vote: string, voter: Voter) {
+  get agreeCount(): number {
+    return this.voteCounts[0];
+  }
+
+  get disagreeCount(): number {
+    return this.voteCounts[1];
+  }
+
+  onVote(optionIndex: number, voter: Voter) {
     if (!voter.voted) {
-      if (vote === 'Agree') {
-        this.agreeCount++;
-      } else if (vote === 'Disagree') {
-        this.disagreeCount++;
-      }
+      this.voteCounts[optionIndex]++;
       voter.voted = true;
     }
   }

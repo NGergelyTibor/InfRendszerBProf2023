@@ -1,4 +1,4 @@
 <h2>{{ name }}</h2>
-<div *ngFor="let option of options">
-  <button (click)="onVote(option)" [disabled]="voted">{{ option }}</button>
+<div *ngFor="let option of options; let i = index">
+  <button (click)="onVote(i)" [disabled]="voted">{{ option }}</button>
 </div>

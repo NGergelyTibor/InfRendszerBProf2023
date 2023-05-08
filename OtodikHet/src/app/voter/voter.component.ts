@@ -8,13 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class VoterComponent {
   @Input() name!: string;
   @Input() options!: string[];
-  @Output() vote = new EventEmitter<string>();
+  @Output() vote = new EventEmitter<number>();
 
   voted = false;
 
-  onVote(option: string) {
+  onVote(optionIndex: number) {
     if (!this.voted) {
-      this.vote.emit(option);
+      this.vote.emit(optionIndex);
       this.voted = true;
     }
   }
