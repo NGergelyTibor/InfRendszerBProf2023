@@ -8,10 +8,14 @@ import { GitHubService } from './services/git-hub-service.service';
 import { AppComponent } from './app.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RepoProfileComponent } from './repo-profile/repo-profile.component';
 
 const routes: Routes = [
   { path: 'user-search', component: UserSearchComponent },
   { path: 'repo-search', component: RepoSearchComponent },
+  { path: 'user/:username', component: UserProfileComponent },
+  { path: 'repos/:owner/:name', component: RepoProfileComponent },
   { path: '', redirectTo: '/user-search', pathMatch: 'full' },
 ];
 
@@ -19,7 +23,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     UserSearchComponent,
-    RepoSearchComponent
+    RepoSearchComponent,
+    UserProfileComponent,
+    RepoProfileComponent
   ],
   imports: [
     BrowserModule,

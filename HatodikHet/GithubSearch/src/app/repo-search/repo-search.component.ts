@@ -18,7 +18,13 @@ export class RepoSearchComponent implements OnInit {
 
   searchRepo() {
     this.http.get('https://api.github.com/search/repositories?q=' + this.repoName).subscribe((data: any) => {
-      this.repos = data.items;
+      this.repos = data.items.map((repo: any) => {
+        return {
+          name: repo.name,
+          owner: repo.owner.login, // Retrieve the repository owner
+          // Add other properties you want to display
+        };
+      });
     });
   }
 

@@ -9,10 +9,8 @@
     <hr>
     <div *ngIf="user">
       <ul>
-        <li *ngFor="let u of user">
-          <h4><a href="{{ u.html_url }}" target="_blank">{{ u.login }}</a></h4>
-          <img [src]="u.avatar_url" alt="{{ u.login }}" height="100">
-          <p><a href="{{ u.html_url }}" target="_blank">{{ u.html_url }}</a></p>
+        <li *ngFor="let user of user">
+          <h4><a [routerLink]="['/user', user.login]">{{ user.login }}</a></h4>
         </li>
       </ul>
     </div>    

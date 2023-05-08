@@ -1,0 +1,7 @@
+<div *ngIf="repository">
+    <h2>{{ repository.name }}</h2>
+    <p>Description: {{ repository.description }}</p>
+    <p>Language: {{ repository.language }}</p>
+    <p>Repository URL: <a [href]="repository.html_url" target="_blank">{{ repository.html_url }}</a></p>
+  </div>
+  
