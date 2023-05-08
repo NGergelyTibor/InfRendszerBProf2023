@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { GitHubService } from '../services/git-hub-service.service';
 
 @Component({
   selector: 'app-user-search',
@@ -7,19 +7,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-search.component.scss']
 })
 export class UserSearchComponent implements OnInit {
-
   user: any;
   username: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private githubService: GitHubService) { }
 
   ngOnInit(): void {
   }
 
   searchUser() {
-    this.http.get('https://api.github.com/users/' + this.username).subscribe((data) => {
-      this.user = data;
+    this.githubService.searchUsers(this.username).subscribe((data: any) => {
+      this.user = data.items;
     });
   }
-
 }
