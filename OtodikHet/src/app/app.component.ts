@@ -1,5 +1,9 @@
-
 import { Component } from '@angular/core';
+
+interface Voter {
+  name: string;
+  voted: boolean;
+}
 
 @Component({
   selector: 'app-root',
@@ -7,14 +11,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  voters: Voter[] = [
+    { name: 'Mr. IQ', voted: false },
+    { name: 'Ms. Universe', voted: false },
+    { name: 'Bombasto', voted: false }
+  ];
+
+  questionText = "Should mankind colonize the Universe?";
+
   agreeCount = 0;
   disagreeCount = 0;
 
-  onVote(vote: boolean) {
-    if (vote) {
-      this.agreeCount++;
-    } else {
-      this.disagreeCount++;
+  onVote(vote: string, voter: Voter) {
+    if (!voter.voted) {
+      if (vote === 'Agree') {
+        this.agreeCount++;
+      } else if (vote === 'Disagree') {
+        this.disagreeCount++;
+      }
+      voter.voted = true;
     }
   }
 }
