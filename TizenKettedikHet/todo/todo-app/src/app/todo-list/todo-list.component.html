@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2>TODO List</h2>
+  <button class="btn btn-primary" (click)="fetchExpiredTodos()">
+    {{ showExpiredTodos ? 'Show All Todos' : 'Fetch Expired Todos' }}
+  </button>
+  <table class="table table-bordered mt-4" *ngIf="todos && todos.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Completed</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.deadline | date }}</td>
+        <td>{{ todo.completed ? 'Yes' : 'No' }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="edit(todo)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(todo)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mt-4" *ngIf="todos && todos.length === 0 && !showExpiredTodos">
+    No TODOs to display.
+  </div>
+  <button class="btn btn-primary mt-4" (click)="create()">Create New TODO</button>
+</div>
