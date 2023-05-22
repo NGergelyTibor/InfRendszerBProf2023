@@ -12,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 const routes: Routes = [
   { path: 'todos', component: TodoListComponent },
   { path: 'todos/new', component: TodoFormComponent },
-  { path: 'todos/:id/edit', component: TodoFormComponent }, // Add this line for the edit route
+  { path: 'todos/:id/edit', component: TodoFormComponent },
   { path: 'todos/:id', component: TodoDetailsComponent },
   { path: '', redirectTo: '/todos', pathMatch: 'full' },
 ];
