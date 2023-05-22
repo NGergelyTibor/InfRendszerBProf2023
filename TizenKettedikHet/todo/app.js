@@ -1,12 +1,12 @@
 // app.js
 const express = require('express');
 const cors = require('cors'); // Add this line
-const sequelize = require('./models/config/database'); // Assuming your Sequelize configuration file is in the same directory
+const sequelize = require('./models/config/database');
 const app = express();
 const todoRoutes = require('./routes/todos');
 
 app.use(express.json());
-app.use(cors()); // Add this line
+app.use(cors());
 
 app.use('/todos', todoRoutes);
 
