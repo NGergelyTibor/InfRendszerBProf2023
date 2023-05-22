@@ -1,5 +1,5 @@
 export interface Todo {
-  id?: number; // Make the id property optional
+  id?: number; 
   title: string;
   description: string;
   deadline: string;
