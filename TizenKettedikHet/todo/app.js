@@ -1,6 +1,6 @@
 // app.js
 const express = require('express');
-const cors = require('cors'); // Add this line
+const cors = require('cors'); 
 const sequelize = require('./models/config/database');
 const app = express();
 const todoRoutes = require('./routes/todos');
